@@ -50,6 +50,7 @@ export class FarmermeetinglistComponent implements OnInit {
           //'copy', 'csv', 'excel', 'pdf', 'print'
           //*
           'excel', 'pdf'
+          //'excel', 'pdf'
         ]
 
           
