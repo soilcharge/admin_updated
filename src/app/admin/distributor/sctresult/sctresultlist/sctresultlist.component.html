@@ -1,0 +1,72 @@
+<main>
+    <div class="main-content">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <span class="page-title">
+                    SCT Result List
+                </span>
+                <ul class="breadcrumbs">
+                    <li><a routerLink="/admin/dashboard">Home</a></li>
+                    <li class="active">SCT Result List</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <span style="float: right;">
+                                    <a routerLink="/admin/distributor-add" class="waves-effect waves-light btn"><i
+                                            class="material-icons left">library_add</i>Add Distributor</a></span>
+                            </div>
+                        </div>
+                        <div class="nowrap">
+                          <table style="font-size: small" class="datatable responsive-table highlight" id="pagedatatable">
+                            <thead>
+                                <tr>
+                                    <th style="white-space: nowrap">Sr No.</th>
+                                    <th style="white-space: nowrap">Name</th>
+                                    <th style="white-space: nowrap">Title</th>
+                                    <th style="white-space: nowrap">Area</th>
+                                    <th style="white-space: nowrap">Description</th>
+                                    <th style="white-space: nowrap">Latitude</th>
+                                    <th style="white-space: nowrap">Longitude</th>
+                                    <!-- <th style="white-space: nowrap">Created By</th> -->
+
+                                    <th style="white-space: nowrap">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let listdata of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
+                                    <td>{{(5*(p-1))+(i+1)}}</td>
+                                    <td style="white-space: nowrap"><span >{{listdata.dfname}} {{listdata.dmname}}
+                                            {{listdata.dlname}}</span></td>
+                                    <td style="white-space: nowrap"><span >{{listdata.title}}</span></td>
+                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.area}}</span></td>
+                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.description}}</span></td>
+                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.latitude}}</span></td>
+                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.longitude}}</span></td>
+                                    <!-- <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.created_by}}</span></td> -->
+                                 
+                                    <td style="white-space: nowrap;">
+                                       
+                                        <a href="JavaScript:void(0)" class="btn-floating"
+                                        title="Edit" style="background-color: violet;" (click)="getForView(listdata.id)"><i
+                                            class="material-icons" >remove_red_eye</i></a>
+                                    &nbsp;
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

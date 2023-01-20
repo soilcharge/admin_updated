@@ -1,0 +1,84 @@
+<main>
+    <div class="main-content">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <span class="page-title">
+                    Distributor List
+                </span>
+                <ul class="breadcrumbs">
+                    <li><a routerLink="/admin/dashboard">Home</a></li>
+                    <li class="active">Distributor List</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+
+                            </div>
+                        </div>
+                        <div class="nowrap">
+                            <table style="font-size: small" class="datatable responsive-table highlight"
+                                id="pagedatatable">
+                                <thead>
+                                    <tr>
+                                        <th style="white-space: nowrap">Sr No.</th>
+                                        <th style="white-space: nowrap">Name</th>
+                                        <th style="white-space: nowrap">Contact Number</th>
+                                        <th style="white-space: nowrap">State</th>
+                                        <th style="white-space: nowrap">District</th>
+                                        <th style="white-space: nowrap">Taluka</th>
+                                        <th style="white-space: nowrap">Village</th>
+
+
+                                        <th style="white-space: nowrap">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        *ngFor="let listdata of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
+                                        <td>{{(5*(p-1))+(i+1)}}</td>
+                                        <td style="white-space: nowrap"><span>{{listdata.fname}} {{listdata.mname}}
+                                                {{listdata.lname}}</span>&nbsp; &nbsp;
+                                            <span *ngIf="listdata.new_user_type"
+                                                style="background-color: green; color:whitesmoke; text-transform: capitalize;"
+                                                class="blink_me"> &nbsp; {{listdata.new_user_type}} &nbsp;</span>
+                                        </td>
+                                        <td style="white-space: nowrap"><span>{{listdata.phone}}</span></td>
+                                        <td style="white-space: nowrap"><span
+                                                style="text-transform:uppercase">{{listdata.state}}</span></td>
+                                        <td style="white-space: nowrap"><span
+                                                style="text-transform:uppercase">{{listdata.district}}</span></td>
+                                        <td style="white-space: nowrap"><span
+                                                style="text-transform:uppercase">{{listdata.taluka}}</span></td>
+                                        <td style="white-space: nowrap"><span
+                                                style="text-transform:uppercase">{{listdata.city}}</span></td>
+
+                                        <td style="white-space: nowrap;">
+                                            <a href="JavaScript:void(0)" class="btn-floating" title="Edit"
+                                                style="background-color: green;"
+                                                (click)="getForUpdate(listdata.id)"><i
+                                                    class="material-icons">edit</i>{{listdata.id}}</a>
+                                            &nbsp;
+                                            <a href="JavaScript:void(0)" class="btn-floating" title="Edit"
+                                                style="background-color: violet;"
+                                                (click)="getForView(listdata.id)"><i
+                                                    class="material-icons">remove_red_eye</i></a>
+                                            &nbsp;
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

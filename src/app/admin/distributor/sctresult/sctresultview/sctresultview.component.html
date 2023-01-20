@@ -1,0 +1,129 @@
+<main>
+    <div class="main-content">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <span class="page-title">
+                    SCT Result View
+                </span>
+                <ul class="breadcrumbs">
+                    <li><a routerLink="/admin/dashboard">Home</a></li>
+                    <li><a routerLink="/admin/sctresult-list">SCT Result</a></li>
+                    <li class="active">SCT Result View</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="card">
+                    <div class="card-content">
+                        <form [formGroup]="formGroupNew" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="input-field col s12 m4 l4">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="applicantFirstName" name="fname" class="validate" type="text" value=""
+                                        style="text-transform:uppercase" formControlName="fname" readonly required />
+                                    <label for="first_name">Name <span class="red-text">*</span></label>
+                                    <div *ngIf="submitted && f.fname.errors" class="invalid-input">
+                                        <span class="red-text"><strong>Required*</strong></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="input-field col s12 m4 l4">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input id="area" name="area" placeholder="" class="validate" type="text" value=""
+                                        formControlName="area" readonly required />
+                                    <label for="mobile_number">Area <span class="red-text">*</span></label>
+                                    <div *ngIf="submitted && f.area.errors" class="invalid-input">
+                                        <span class="red-text"><strong>Required*</strong></span>
+                                    </div>
+                                </div>
+                                <div class="input-field col s12 m4 l4">
+                                    <i class="material-icons prefix">alternate_email</i>
+
+                                    <input id="description" name="description" class="validate" type="text" value=""
+                                        formControlName="description" readonly required />
+                                    <label for="description">Description</label>
+                                    <div *ngIf="submitted && f.description.errors" class="invalid-input">
+                                        <span class="red-text"><strong>Required*</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s12 m4 l4">
+                                    <i class="material-icons prefix">format_list_numbered</i>
+                                    <input id="latitude" name="latitude" class="validate" type="number" value=""
+                                        formControlName="latitude" readonly required />
+                                    <label for="latitude">Latitude</label>
+                                    <div *ngIf="submitted && f.latitude.errors" class="invalid-input">
+                                        <div *ngIf="f.latitude.errors.required">
+                                            <span class="red-text"><strong>Required*</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="input-field col s12 m4 l4">
+                                    <i class="material-icons prefix">format_list_numbered</i>
+                                    <input id="longitude" name="longitude" class="validate" type="number" value=""
+                                        formControlName="longitude" readonly required />
+                                    <label for="longitude">Longitude</label>
+                                    <div *ngIf="submitted && f.longitude.errors" class="invalid-input">
+                                        <div *ngIf="f.longitude.errors.required">
+                                            <span class="red-text"><strong>Required*</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+<!-- 
+                                <div class="input-field col s12 m4 l4">
+                                    <i class="material-icons prefix">format_list_numbered</i>
+                                    <input id="date" name="date" class="validate" type="number" value=""
+                                        formControlName="date" readonly required />
+                                    <label for="date">Date</label>
+                                    <div *ngIf="submitted && f.date.errors" class="invalid-input">
+                                        <div *ngIf="f.date.errors.required">
+                                            <span class="red-text"><strong>Required*</strong></span>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                            
+                            </div>
+
+                            
+
+
+                            <div class="col s12 m4 l4">
+                                <img src={{photoviewone}} alt="image" height="400px"/>
+                              </div>
+
+                              <div class="col s12 m4 l4">
+                                <img src={{photoviewtwo}} alt="image" height="400px"/>
+                              </div>
+
+                              <div class="col s12 m4 l4">
+                                <img src={{photoviewthree}} alt="image" height="400px"/>
+                              </div>
+
+                              <div class="col s12 m4 l4">
+                                <img src={{photoviewfour}} alt="image" height="400px"/>
+                              </div>
+
+                              <div class="col s12 m4 l4">
+                                <img src={{photoviewfive}} alt="image" height="400px"/>
+                              </div>
+
+
+                            <div class="row" style="float:right;">
+                                <!-- <div class="col s12">
+                                    <button type="submit" class="btn btn-save">Save</button>
+                                </div> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

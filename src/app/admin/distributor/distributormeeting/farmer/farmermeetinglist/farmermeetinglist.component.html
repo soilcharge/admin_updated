@@ -1,0 +1,67 @@
+<main>
+    <div class="main-content">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <span class="page-title">
+                    Farmer Meeting List
+                </span>
+                <ul class="breadcrumbs">
+                    <li><a routerLink="/admin/dashboard">Home</a></li>
+                    <li class="active">Farmer Meeting List</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <!-- <span style="float: right;">
+                                    <a routerLink="/admin/distributor-add"
+                                        class="waves-effect waves-light btn"><i
+                                            class="material-icons left">library_add</i>Add Distributor</a></span> -->
+                            </div>
+                        </div>
+                        <table style="font-size: small" class="datatable responsive-table highlight" id="pagedatatable">
+                            <thead>
+                                <tr>
+                                    <th>Sr No.</th>
+                                    <th>Distributor Name</th>
+                                    <th>Date</th>
+                                    <th>Present Farmer</th>
+                                    <th>Meeting Title</th>
+                                    <th>Points Discuss</th>
+                                    <th >Meeting Photo 1</th>
+                                    <th >Meeting Photo 2</th>
+                                    <th >Meeting Photo 3</th>
+                                    <th >Meeting Photo 4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let listdata of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
+                                    <td>{{(5*(p-1))+(i+1)}}</td>
+                                    <td><span style="text-transform:uppercase">{{listdata.dfname}} {{listdata.dmname}}
+                                            {{listdata.dlname}}</span></td>
+                                    <td><span style="text-transform:uppercase">{{listdata.date}}</span></td>
+                                    <td><span
+                                            style="text-transform:uppercase">{{listdata.presentFarmerFormeeting}}</span>
+                                    </td>
+                                    <td><span style="text-transform:uppercase">{{listdata.meeting_title}}</span></td>
+                                    <td><span style="text-transform:uppercase">{{listdata.meeting_description}}</span>
+                                    </td>
+                                    <td><span ><img src={{listdata.photo_one}} alt="image" height="50px"></span></td>
+                                    <td><span ><img src={{listdata.photo_two}} alt="image" height="50px"></span></td>
+                                    <td><span ><img src={{listdata.photo_three}} alt="image" height="50px"></span></td>
+                                    <td><span ><img src={{listdata.photo_four}} alt="image" height="50px"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
