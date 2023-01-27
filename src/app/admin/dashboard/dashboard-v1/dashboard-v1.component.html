@@ -44,6 +44,33 @@
               </div>
             </div>
           </div>
+
+          <div class="col s12 m3">
+            <div class="card red">
+              <div class="card-content white-text">
+                <p><b>DSC</b></p>
+                <span class="card-title">{{dsc_count}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m3">
+            <div class="card blue">
+              <div class="card-content white-text">
+                <p><b>BSC</b></p>
+                <span class="card-title">{{bsc_count}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m3">
+            <div class="card green">
+              <div class="card-content white-text">
+                <p><b>FSC</b></p>
+                <span class="card-title">{{fsc_count}}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -150,6 +177,22 @@
                 <div class="card-content white-red">
                   <p><b>Distributor</b></p>
                   <div class="row">
+
+                    <div class="input-field col s12 m4 l4">
+                        <!-- <label>Select State</label> -->
+                        <select class="" formControlName="dist_type" (change)="selectDist($event)">
+                            <option value="" disabled selected>Select Distributor Type</option>
+                            <option *ngFor="let dist_type of distributor_type"
+                                [value]="dist_type.name">
+                                {{dist_type.id}}</option>
+
+                        </select>
+                        <!-- <div *ngIf="submitted && dist_type.controls.dist_type.errors"
+                            class="invalid-input">
+                            <span class="red-text"><strong>Required*</strong></span>
+                        </div> -->
+                    </div>
+
 
                     <div class="input-field col s12 m4 l4">
                       <!-- <label>Select State</label> -->

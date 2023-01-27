@@ -46,10 +46,15 @@ export class DashboardV1Component implements OnInit {
   id1: any;
   id2: any;
   id3: any;
+  id4: any;
   farmer_count: any;
   distributor_count: any;
+  fsc_count: any;
+  bsc_count: any;
+  dsc_count: any;
   order_count: any;
   product_count: any;
+  distributor_type: any;
 
   constructor(private DashboardService: DashboardService,
     private HelperService: HelperService,
@@ -60,6 +65,7 @@ export class DashboardV1Component implements OnInit {
   ngOnInit(): void {
 
     this.getAgency();
+    this.distributor_type = this.HelperService.getDistributorTypeList();
     this.HelperService.getState().subscribe((allstate) => {
       this.allstate = allstate['data'];
       setTimeout(() => {
@@ -82,6 +88,7 @@ export class DashboardV1Component implements OnInit {
       districtnew: new FormControl('', [Validators.required]),
       talukanew: new FormControl('', [Validators.required]),
       citynew: new FormControl('', [Validators.required]),
+      dist_type: new FormControl('', [Validators.required]),
     });
     this.formControlValueChangesNew();
 
@@ -92,6 +99,7 @@ export class DashboardV1Component implements OnInit {
 
   }
 
+
   dashboarddata(){
     this.DashboardService.dashboarddata().subscribe(res => {
       if (res['result']) {
@@ -99,6 +107,9 @@ export class DashboardV1Component implements OnInit {
         this.distributor_count = res['distributor_count'];
         this.product_count = res['product_count'];
         this.order_count = res['order_count'];
+        this.dsc_count = res['dsc_count'];
+        this.bsc_count = res['bsc_count'];
+        this.fsc_count = res['fsc_count'];
       }
     });
   }
@@ -108,6 +119,7 @@ export class DashboardV1Component implements OnInit {
     this.id1 ='';
     this.id2 ='';
     this.id3 = '';
+    this.id4 = '';
 
     this.webdash_farmer_count_all = [];
     this.formdatanew = this.farmerForm.value;
@@ -140,6 +152,7 @@ export class DashboardV1Component implements OnInit {
     this.id1 ='';
     this.id2 ='';
     this.id3 = '';
+    this.id4 = '';
     this.formdatanew=''
 
     this.webdash_dist_count_all = [];
@@ -148,8 +161,10 @@ export class DashboardV1Component implements OnInit {
     this.id1 = this.formdatanew.districtnew;
     this.id2 = this.formdatanew.talukanew;
     this.id3 = this.formdatanew.citynew;
+    this.id4 = this.formdatanew.dist_type;
 
     var data = {
+      dist_type: this.id4,
       state: this.id,
       district: this.id1,
       taluka: this.id2,
@@ -251,6 +266,15 @@ export class DashboardV1Component implements OnInit {
       });
     });
 
+
+   
+    // this.distForm.get('dist_type').valueChanges.{
+
+    // }
+    //     this.distGrapdata();
+    // });
+
+
     this.distForm.get('districtnew').valueChanges.subscribe(val => {
       this.HelperService.getTaluka({ dist_id: val }).subscribe((alltaluka) => {
         this.alltaluka = alltaluka['data'];
@@ -279,6 +303,13 @@ export class DashboardV1Component implements OnInit {
 
   }
 
+  selectDist(val) {
+    console.log(val);
+
+    alert(val.target.value);
+    this.distGrapdata();
+  }
+
   getDataByCityDist()
   {
     this.distGrapdata();
@@ -295,8 +326,9 @@ export class DashboardV1Component implements OnInit {
     this.id1 = this.formdatanew.districtnew;
     this.id2 = this.formdatanew.talukanew;
     this.id3 = this.formdatanew.citynew;
+    this.id4 = this.formdatanew.dist_type;
 
-    this.router.navigate(['/admin', 'distdash-report', this.id, this.id1, this.id2, this.id3]);
+    this.router.navigate(['/admin', 'distdash-report', this.id, this.id1, this.id2, this.id3, this.id4]);
   }
 
 }

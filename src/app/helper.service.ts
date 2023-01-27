@@ -130,6 +130,15 @@ export class HelperService {
     return language;
   }
 
+  getDistributorTypeList() {
+    let language = [
+      { id: 'DSC', name: "dsc" },
+      { id: 'BSC', name: "bsc" },
+      { id: 'FSC', name: "fsc" }
+    ];
+    return language;
+  }
+
   getState() {
     return this.http.post(this.urlforapi + 'statelist', null);
   }
