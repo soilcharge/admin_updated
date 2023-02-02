@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
-
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Injectable({
   providedIn: 'root'
 })
 export class DistributorService {
 
   //declare constant token;
-  urlforapi =environment.apiurl;
+  urlforapi = environment.apiurl;
   token = '';
   smartphone: any = [];
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private ngxService: NgxUiLoaderService) {
 
 
   }
@@ -21,7 +22,7 @@ export class DistributorService {
   }
 
   checkemailexist(obj) {
-    let result= this.http.post(this.urlforapi + 'checkemailexist', obj);
+    let result = this.http.post(this.urlforapi + 'checkemailexist', obj);
     return result;
   }
 
@@ -40,11 +41,11 @@ export class DistributorService {
   }
 
 
-  
+
 
   updateDistributor(distributorData) {
     this.token = this.getToken();
-    let result= this.http.post(`${this.urlforapi}distributorupdate?token=${this.token}`, distributorData);
+    let result = this.http.post(`${this.urlforapi}distributorupdate?token=${this.token}`, distributorData);
     return result;
   }
 
@@ -65,14 +66,12 @@ export class DistributorService {
   }
 
   /// SCT Result
-  getSctresultslist()
-  {
+  getSctresultslist() {
     this.token = this.getToken();
     return this.http.post(`${this.urlforapi}websctresultlist?token=${this.token}`, null);
   }
 
-  getSctresultsview(obj)
-  {
+  getSctresultsview(obj) {
     this.token = this.getToken();
     return this.http.post(`${this.urlforapi}websctresultget?token=${this.token}`, obj);
   }
@@ -99,14 +98,21 @@ export class DistributorService {
   }
 
   //All Meeting List
-  getFarmerMeetingList() {
+  getFarmerMeetingList(data) {
     this.token = this.getToken();
-    return this.http.post(`${this.urlforapi}farmermeetinglist_distributorweb?token=${this.token}`, null);
+    this.ngxService.start();
+    let result = this.http.post(`${this.urlforapi}farmermeetinglist_distributorweb?token=${this.token}`, data);
+    this.ngxService.stop();
+    return result;
+
   }
 
-  getDistributorMeetingList() {
+  getDistributorMeetingList(data) {
     this.token = this.getToken();
-    return this.http.post(`${this.urlforapi}distributormeetinglist_distributorweb?token=${this.token}`, null);
+    this.ngxService.start();
+    let result = this.http.post(`${this.urlforapi}distributormeetinglist_distributorweb?token=${this.token}`, data);
+    this.ngxService.stop();
+    return result;
   }
 
   //Visit List Distributor

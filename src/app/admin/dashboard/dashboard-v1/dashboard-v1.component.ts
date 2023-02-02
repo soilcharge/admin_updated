@@ -5,19 +5,21 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+declare var $: any;
 @Component({
   selector: 'app-dashboard-v1',
   templateUrl: './dashboard-v1.component.html',
   styleUrls: ['./dashboard-v1.component.css']
 })
 export class DashboardV1Component implements OnInit {
+  p: number = 1;
   submitted: boolean = false;
   lat = 19.0760;
   lng = 72.8777;
   allagencylist: any;
 
   farmerForm: FormGroup;
-  distForm:FormGroup
+  distForm: FormGroup
   allstate: any = [];
   alldist: any = [];
   allcity: any = [];
@@ -25,7 +27,7 @@ export class DashboardV1Component implements OnInit {
 
   name = 'Angular';
   webdash_farmer_count_all = [];
-  webdash_dist_count_all=[];
+  webdash_dist_count_all = [];
   //view: any[] = [500, 200];
   view: any[] = [400, 150];
   // options
@@ -55,6 +57,7 @@ export class DashboardV1Component implements OnInit {
   order_count: any;
   product_count: any;
   distributor_type: any;
+  product_count_productwise: any;
 
   constructor(private DashboardService: DashboardService,
     private HelperService: HelperService,
@@ -63,6 +66,20 @@ export class DashboardV1Component implements OnInit {
   }
 
   ngOnInit(): void {
+
+
+    $(document).ready(function () {
+      setTimeout(() => {
+        let table = $('#pagedatatable').DataTable({
+          ordering: true,
+          lengthChange: false,
+          showNEntries: false,
+
+          // dom: 'Bfrtip',
+
+        })
+      }, 4000)
+    })
 
     this.getAgency();
     this.distributor_type = this.HelperService.getDistributorTypeList();
@@ -100,7 +117,7 @@ export class DashboardV1Component implements OnInit {
   }
 
 
-  dashboarddata(){
+  dashboarddata() {
     this.DashboardService.dashboarddata().subscribe(res => {
       if (res['result']) {
         this.farmer_count = res['farmer_count'];
@@ -110,14 +127,15 @@ export class DashboardV1Component implements OnInit {
         this.dsc_count = res['dsc_count'];
         this.bsc_count = res['bsc_count'];
         this.fsc_count = res['fsc_count'];
+        this.product_count_productwise = res['product_count_productwise'];
       }
     });
   }
 
   farmerGrapdata() {
     this.id = '';
-    this.id1 ='';
-    this.id2 ='';
+    this.id1 = '';
+    this.id2 = '';
     this.id3 = '';
     this.id4 = '';
 
@@ -149,11 +167,11 @@ export class DashboardV1Component implements OnInit {
   distGrapdata() {
 
     this.id = '';
-    this.id1 ='';
-    this.id2 ='';
+    this.id1 = '';
+    this.id2 = '';
     this.id3 = '';
     this.id4 = '';
-    this.formdatanew=''
+    this.formdatanew = ''
 
     this.webdash_dist_count_all = [];
     this.formdatanew = this.distForm.value;
@@ -229,8 +247,7 @@ export class DashboardV1Component implements OnInit {
     });
   }
 
-  getDataByCityFarmer()
-  {
+  getDataByCityFarmer() {
     this.farmerGrapdata();
   }
 
@@ -267,7 +284,7 @@ export class DashboardV1Component implements OnInit {
     });
 
 
-   
+
     // this.distForm.get('dist_type').valueChanges.{
 
     // }
@@ -310,8 +327,7 @@ export class DashboardV1Component implements OnInit {
     this.distGrapdata();
   }
 
-  getDataByCityDist()
-  {
+  getDataByCityDist() {
     this.distGrapdata();
   }
 
@@ -330,5 +346,8 @@ export class DashboardV1Component implements OnInit {
 
     this.router.navigate(['/admin', 'distdash-report', this.id, this.id1, this.id2, this.id3, this.id4]);
   }
+
+
+
 
 }

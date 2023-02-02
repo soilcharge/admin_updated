@@ -31,18 +31,18 @@ export class FarmerlistComponent implements OnInit {
   id2: any;
   id3: any;
 
-  distributordetailsall:any;
+  distributordetailsall: any;
   id4: any;
   id5: any;
-  
+
   constructor(
     public fcofieldService: FcofieldService,
     public router: Router,
     private ngxService: NgxUiLoaderService,
     private toastr: ToastrService,
-    private HelperService:HelperService,
-    private distributorService:DistributorService
-  ) {}
+    private HelperService: HelperService,
+    private distributorService: DistributorService
+  ) { }
 
   ngOnInit(): void {
     // $('#pageDataTable').DataTable();
@@ -58,13 +58,13 @@ export class FarmerlistComponent implements OnInit {
 
     });
 
-    
+
     this.farmerForm = new FormGroup({
       state: new FormControl('', [Validators.required]),
       district: new FormControl('', [Validators.required]),
       taluka: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required]),
-      created_disctributor_id:new FormControl('', [Validators.required]),
+      created_disctributor_id: new FormControl('', [Validators.required]),
     });
     this.formControlValueChanges();
 
@@ -77,7 +77,7 @@ export class FarmerlistComponent implements OnInit {
       setTimeout(() => {
         let table = $('#pagedatatable').DataTable({
           ordering: true,
-          lengthChange: false,
+          lengthChange: true,
           showNEntries: false,
         })
       }, 4000)
@@ -91,7 +91,7 @@ export class FarmerlistComponent implements OnInit {
       state: '',
       district: '',
       taluka: '',
-      city:'',
+      city: '',
     }
 
     this.fcofieldService.getFarmerList(data).subscribe((farmerlist) => {
@@ -182,9 +182,9 @@ export class FarmerlistComponent implements OnInit {
 
 
 
-       
-       
-  
+
+
+
 
 
   }
@@ -193,13 +193,11 @@ export class FarmerlistComponent implements OnInit {
     return this.farmerForm.controls;
   }
 
-  getDataByDist()
-  {
+  getDataByDist() {
     this.farmerListdata();
   }
 
-  getDataByCity()
-  {
+  getDataByCity() {
     this.farmerListdata();
   }
 
@@ -215,7 +213,7 @@ export class FarmerlistComponent implements OnInit {
   //   this.router.navigate(['/admin', 'farmerdash-report', this.id, this.id1, this.id2, this.id3]);
   // }
 
-  
+
   farmerListdata() {
 
     this.formdatanew = this.farmerForm.value;
@@ -235,11 +233,11 @@ export class FarmerlistComponent implements OnInit {
     }
     this.fcofieldService.getFarmerList(data).subscribe(res => {
       if (res['result']) {
-        this.allfarmerlist  = res['data'];
+        this.allfarmerlist = res['data'];
       }
     });
 
   }
 
-  
+
 }
