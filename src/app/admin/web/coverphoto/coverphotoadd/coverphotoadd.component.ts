@@ -98,7 +98,7 @@ export class CoverphotoaddComponent implements OnInit {
 
   onSubmit() {
 
-    if (this.filesize > 5000000) {
+    if (this.filesize > 5500000) {
       this.toastr.error("File Size Should be less than 5 MB");
       return;
     }

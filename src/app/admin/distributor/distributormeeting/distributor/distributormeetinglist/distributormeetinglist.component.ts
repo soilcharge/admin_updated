@@ -77,8 +77,8 @@ export class DistributormeetinglistComponent implements OnInit {
           buttons: [
             //'copy', 'csv', 'excel', 'pdf', 'print'
             //*
-            'excel'
-            //'excel', 'pdf'
+            // 'excel'
+            'excel', 'pdf'
           ]
 
 

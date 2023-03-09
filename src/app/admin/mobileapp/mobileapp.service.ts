@@ -64,4 +64,16 @@ export class MobileappService {
       formdata,
     )
   }
+
+  getMobileAppHetMessegesList() {
+    this.token = this.getToken()
+    return this.http.post(
+      `${this.urlforapi}messageview?token=${this.token}`,null)
+  }
+
+  getMobileAppYoutubeSuscriberList() {
+    this.token = this.getToken()
+    return this.http.post(
+      `${this.urlforapi}suscriberlist_distributorapp?token=${this.token}`,null)
+  }
 }

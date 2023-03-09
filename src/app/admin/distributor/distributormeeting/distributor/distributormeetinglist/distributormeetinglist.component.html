@@ -128,6 +128,11 @@
                                     <th>Meeting Place</th>
                                     <th>Present Distributor</th>
                                     <th>Points Discuss</th>
+                                    <th>Photo One</th>
+                                    <th>Photo Two</th>
+                                    <th>Photo Three</th>
+                                    <th>Photo Four</th>
+                                    <th>Photo Five</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -142,6 +147,37 @@
                                             style="text-transform:uppercase">{{listdata.presentFarmerFormeeting}}</span>
                                     </td>
                                     <td><span style="text-transform:uppercase">{{listdata.points_discuss}}</span></td>
+
+                                     <td><span>
+                                        <a href={{listdata.photopathone}} target="_blank" download>
+
+                                       <img src={{listdata.photopathone}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopathtwo}} target="_blank" download>
+
+                                       <img src={{listdata.photopathtwo}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopaththree}} target="_blank" download>
+
+                                       <img src={{listdata.photopaththree}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopathfour}} target="_blank" download>
+
+                                       <img src={{listdata.photopathfour}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopathfive}} target="_blank" download>
+
+                                       <img src={{listdata.photopathfive}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
                                 </tr>
                             </tbody>
                         </table>

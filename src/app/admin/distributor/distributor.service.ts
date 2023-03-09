@@ -121,6 +121,12 @@ export class DistributorService {
     return this.http.post(`${this.urlforapi}distributorvisittofarmerlist_distributorweb?token=${this.token}`, null);
   }
 
+    //Visit List Distributor
+    targetVideoViewedMobileapp() {
+      this.token = this.getToken();
+      return this.http.post(`${this.urlforapi}target_video_viewed_admin?token=${this.token}`, null);
+    }
+
   //distributor video list
 
   getVideoDetailsAll() {

@@ -96,6 +96,8 @@ export class SctresultviewComponent implements OnInit {
       },1000);
     }
 
+    $(".paginate_button").hide()
+
   }
 
  

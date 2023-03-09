@@ -100,6 +100,10 @@ import { ListcropComponent } from './mobileapp/crop/listcrop/listcrop.component'
 import { AddcropComponent } from './mobileapp/crop/addcrop/addcrop.component';
 import { EditcropComponent } from './mobileapp/crop/editcrop/editcrop.component';
 import { PrinciplelistComponent } from './web/principle/principlelist/principlelist.component';
+import { DistributorvideoviwedComponent } from './distributor/distributorvideoviwed/distributorvideoviwed.component';
+import { ComplaintviewComponent } from './mobileapp/complaintview/complaintview.component';
+import { MessageviewComponent } from './mobileapp/messageview/messageview.component';
+import { YoutubesuscriberviewComponent } from './mobileapp/youtubesuscriberview/youtubesuscriberview.component';
 const routes: Routes = [
   {
     path: '',
@@ -227,6 +231,11 @@ const routes: Routes = [
       },
 
       {
+        path: 'distributor-video-view',
+        component: DistributorvideoviwedComponent
+      },
+
+      {
         path: 'sctresult-view',
         component: SctresultviewComponent
       },
@@ -254,6 +263,23 @@ const routes: Routes = [
         path: 'mobileapp-adress-add/:id',
         component: AddaddressComponent
       },
+
+      {
+        path: 'mobileapp-messeges-list',
+        component: MessageviewComponent
+      },
+
+      {
+        path: 'mobileapp-complaint-list',
+        component: ComplaintviewComponent
+      },
+
+      
+      {
+        path: 'mobileapp-youtube-suscriber-list',
+        component: YoutubesuscriberviewComponent
+      },
+
    
       //Mobile App Crop
       {
