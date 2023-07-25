@@ -40,8 +40,8 @@
                                 </thead>
                                 <tbody>
                                     <tr
-                                        *ngFor="let listdata of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
-                                        <td>{{(5*(p-1))+(i+1)}}</td>
+                                    *ngFor="let listdata of alllist ;let i=index;">
+                                        <td>{{i+1}}</td>
                                         <td style="white-space: nowrap"><span>{{listdata.fname}} {{listdata.mname}}
                                                 {{listdata.lname}}</span>&nbsp; &nbsp;
                                             <span *ngIf="listdata.new_user_type"
