@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core'
 import { WebService } from '../../web.service'
 import { Router } from '@angular/router'
 import { ToastrService } from 'ngx-toastr'
+import { Pipe, PipeTransform } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-productinfolist',
   templateUrl: './productinfolist.component.html',
@@ -15,12 +18,18 @@ export class ProductinfolistComponent implements OnInit {
     public webService: WebService,
     public router: Router,
     private toastr: ToastrService,
+    private sanitizer: DomSanitizer
   ) {}
+
 
   ngOnInit(): void {
     this.webService.webProductInfoList().subscribe((datalist) => {
       this.alllist = datalist['data']
     })
+  }
+
+  sanitizeHTML(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
   deleteCompanyProfile(id) {

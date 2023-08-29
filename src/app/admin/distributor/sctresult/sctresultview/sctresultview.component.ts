@@ -86,9 +86,6 @@ export class SctresultviewComponent implements OnInit {
         latitude: this.editdata[0].latitude,
         longitude: this.editdata[0].longitude,
         date: this.editdata[0].date,
-        
-        
-       
         datafor: 1
       });
       setTimeout(()=>{

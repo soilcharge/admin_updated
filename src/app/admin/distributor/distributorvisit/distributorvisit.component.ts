@@ -13,7 +13,13 @@ export class DistributorvisitComponent implements OnInit {
   p:number = 1;
   constructor(public distributorService:DistributorService,public router:Router) { }
 
+  ngAfterViewInit(): void {
+
+    $(".paginate_button").hide()
+  }
+
   ngOnInit(): void {
+    
     this.distributorService.getVisitList().subscribe(list => {
       this.alllist = list['data'];
     });
