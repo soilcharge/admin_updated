@@ -114,8 +114,8 @@ export class HelperService {
     let listbnnbr=[
       { id: 'brochure', name: "Brochure" },
       { id: 'banner', name: "Banner" },
-      { id: 'langbrochure', name: "Language Brochure" },
-      { id: 'langbanner', name: "Language Banner" },
+      // { id: 'langbrochure', name: "Language Brochure" },
+      // { id: 'langbanner', name: "Language Banner" },
     ];
     return listbnnbr;
   }

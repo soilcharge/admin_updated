@@ -267,6 +267,9 @@ export class FarmeraddComponent implements OnInit {
 
     this.submitted = true;
     if (this.farmerForm.invalid) {
+      console.log("this.farmerForm ",this.farmerForm)
+      console.log("this.farmerForm.invalid ",this.farmerForm.invalid)
+      console.log(this.farmerForm.invalid)
       this.toastr.warning('Form Invalid Something Missing/Invalid!');
       return;
     }

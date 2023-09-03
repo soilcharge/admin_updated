@@ -72,7 +72,7 @@ export class MarqueeaddComponent implements OnInit {
       
       this.WebService.getMarqueAdd(this.formContent.value).subscribe(res => {
         if (res['result'] == true) {
-          this.toastr.success("Marque added successfully!");
+          this.toastr.success("News added successfully!");
           this.router.navigate(['/admin', 'marquee-list']);
         }
       });
@@ -80,7 +80,7 @@ export class MarqueeaddComponent implements OnInit {
     if (this.formContent.value.datafor == 1) {
       this.WebService.getMarqueUpdate(this.formContent.value).subscribe(res => {
         if (res['result'] == true) {
-          this.toastr.success('Marque updated successfully!');
+          this.toastr.success('News updated successfully!');
           this.router.navigate(['/admin', 'marquee-list']);
         }
         else {

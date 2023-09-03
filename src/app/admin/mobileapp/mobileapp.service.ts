@@ -71,6 +71,12 @@ export class MobileappService {
       `${this.urlforapi}messageview?token=${this.token}`,null)
   }
 
+  getMobileAppHetComplaintList() {
+    this.token = this.getToken()
+    return this.http.post(
+      `${this.urlforapi}complaintview?token=${this.token}`,null)
+  }
+
   getMobileAppYoutubeSuscriberList() {
     this.token = this.getToken()
     return this.http.post(

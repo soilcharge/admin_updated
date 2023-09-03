@@ -14,7 +14,7 @@ export class ComplaintviewComponent implements OnInit {
     constructor(public mobileappService:MobileappService,public router:Router) { }
   
     ngOnInit(): void {
-      this.mobileappService.getMobileAppHetMessegesList().subscribe(list => {
+      this.mobileappService.getMobileAppHetComplaintList().subscribe(list => {
         this.alllist = list['data'];
       });
   

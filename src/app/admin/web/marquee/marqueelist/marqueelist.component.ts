@@ -31,7 +31,7 @@ export class MarqueelistComponent implements OnInit {
 
     this.WebService.getMarqueDelete(obj).subscribe(res => {
       if (res['result'] == true) {
-        this.toastr.success("Crop deleted successfully!");
+        this.toastr.success("News deleted successfully!");
         this.router.navigate(['/admin', 'redirectself'], { state: ['/admin', 'marquee-list'] });
       }
     });
