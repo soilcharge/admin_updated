@@ -68,16 +68,20 @@ export class FarmeraddComponent implements OnInit {
         Validators.pattern(/^[A-Za-z']+( +[A-Za-z']+)*$/),
       ]),
       email: new FormControl('', [
-        //Validators.required, Validators.email
+        Validators.required, Validators.email
       ]),
       //email: new FormControl(''),
       phone: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[0-9]{10}$/),
+        Validators.pattern(/^[0-9]+$/),
+        Validators.minLength(10),
+        Validators.maxLength(10)
       ]),
       aadharcard: new FormControl('', [
-        //Validators.required,
-        Validators.pattern(/^[0-9]{12}$/),
+        Validators.required,
+        Validators.pattern(/^[0-9]+$/),
+        Validators.minLength(12),
+        Validators.maxLength(12)
       ]),
       //aadharcard: new FormControl(''),
       state: new FormControl('', [Validators.required]),
@@ -87,12 +91,17 @@ export class FarmeraddComponent implements OnInit {
       address: new FormControl('', [Validators.required]),
       pincode: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[0-9]{6}$/),
+        Validators.pattern(/^[0-9]+$/),
+        Validators.minLength(6),
+        Validators.maxLength(6)
       ]),
-      crop: new FormControl('', [Validators.required]),
+      crop: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[A-Za-z']+( +[A-Za-z']+)*$/),
+      ]),
       acre: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[0-9]$/),
+        Validators.pattern(/^[0-9]+$/),
       ]),
       password: new FormControl('', [Validators.required]),
       farmerphoto: new FormControl(''),
@@ -270,6 +279,7 @@ export class FarmeraddComponent implements OnInit {
       console.log("this.farmerForm ",this.farmerForm)
       console.log("this.farmerForm.invalid ",this.farmerForm.invalid)
       console.log(this.farmerForm.invalid)
+      console.log(this.farmerForm.controls)
       this.toastr.warning('Form Invalid Something Missing/Invalid!');
       return;
     }
