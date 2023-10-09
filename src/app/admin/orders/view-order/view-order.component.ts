@@ -5,13 +5,12 @@ import { ToastrService } from 'ngx-toastr';
 import { AgencyService } from '../../agency/agency.service';
 import { OrderService } from '../../orders/order.service';
 import * as M from "materialize-css/dist/js/materialize";
-
 @Component({
-  selector: 'app-edit-order',
-  templateUrl: './edit-order.component.html',
-  styleUrls: ['./edit-order.component.css']
+  selector: 'app-view-order',
+  templateUrl: './view-order.component.html',
+  styleUrls: ['./view-order.component.css']
 })
-export class EditOrderComponent implements OnInit {
+export class ViewOrderComponent implements OnInit {
 
   farmers: any = [];
   fscs: any = [];
@@ -54,24 +53,48 @@ export class EditOrderComponent implements OnInit {
   getOrder() {
     const order_no = this.route.snapshot.paramMap.get('order_no');
     const dist_id = this.route.snapshot.paramMap.get('dist_id');
-    this.os.getOrder(order_no, dist_id).subscribe(res=>{
-      if (res['result']) {
-        res['data'][0]['all_product'].forEach(e => {
-          this.addProduct();
-        });
-        this.order = res['data'][0];
-      
-        this.orderForm.patchValue(res['data'][0]);
-        setTimeout(()=>{
+    this.os.getOrder1(order_no, dist_id).subscribe(res => {
+      if (res['result'] && res['data'] && res['data'].length > 0) {
+        const orderData = res['data'][0];
+        if (orderData['all_product']) {
+          orderData['all_product'].forEach(e => {
+            this.addProduct();
+          });
+        }
+        this.order = orderData;
+        this.orderForm.patchValue(orderData);
+        setTimeout(() => {
           M.updateTextFields();
-        },500);
-        setTimeout(()=>{
+        }, 500);
+        setTimeout(() => {
           let elems = document.querySelectorAll('select');
           let instances = M.FormSelect.init(elems);
-        },500);
+        }, 500);
       }
     });
   }
+  
+  // getOrder() {
+  //   const order_no = this.route.snapshot.paramMap.get('order_no');
+  //   const dist_id = this.route.snapshot.paramMap.get('dist_id');
+  //   this.os.getOrder1(order_no, dist_id).subscribe(res=>{
+  //     if (res['result']) {
+  //       res['data'][0]['all_product'].forEach(e => {
+  //         this.addProduct();
+  //       });
+  //       this.order = res['data'][0];
+      
+  //       this.orderForm.patchValue(res['data'][0]);
+  //       setTimeout(()=>{
+  //         M.updateTextFields();
+  //       },500);
+  //       setTimeout(()=>{
+  //         let elems = document.querySelectorAll('select');
+  //         let instances = M.FormSelect.init(elems);
+  //       },500);
+  //     }
+  //   });
+  // }
 
   get prod() { return this.orderForm.get('all_product') as FormArray; }
 

@@ -14,7 +14,7 @@ import { PlotvisitlistComponent } from './fcofield/plotvisit/plotvisitlist/plotv
 import { PlotvisitaddComponent } from './fcofield/plotvisit/plotvisitadd/plotvisitadd.component'
 
 
-import { ReactiveFormsModule } from "@angular/forms"
+
 import { HttpClientModule } from '@angular/common/http';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { DistributoraddComponent } from './distributor/distributoradd/distributoradd.component';
@@ -29,6 +29,7 @@ import { CompanyprofileaddComponent } from './web/companyprofile/companyprofilea
 //import { from } from 'rxjs';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms"
 import { AboutuslistComponent } from './web/abutus/aboutuslist/aboutuslist.component';
 import { AboutusaddComponent } from './web/abutus/aboutusadd/aboutusadd.component';
 import { CoverphotolistComponent } from './web/coverphoto/coverphotolist/coverphotolist.component';
@@ -121,17 +122,20 @@ import { DistributorvideoviwedComponent } from './distributor/distributorvideovi
 import { MessageviewComponent } from './mobileapp/messageview/messageview.component';
 import { ComplaintviewComponent } from './mobileapp/complaintview/complaintview.component';
 import { YoutubesuscriberviewComponent } from './mobileapp/youtubesuscriberview/youtubesuscriberview.component';
+import { DisttocompreportComponent } from './report/disttocompreport/disttocompreport.component';
+import { ViewOrderComponent } from './orders/view-order/view-order.component';
 
 @NgModule({
-  declarations: [AdminComponent, SidebarComponent, AdminsidebarComponent, FarmeraddComponent, FarmerlistComponent, PlotvisitlistComponent, AdminloginComponent, DistributoraddComponent, DistributorlistComponent, DistributorvisitComponent, DistributortargetvideolistComponent, DistributortargetvideoaddComponent, FarmermeetinglistComponent, DistributormeetinglistComponent, PlotvisitaddComponent, CompanyprofilelistComponent, CompanyprofileaddComponent, AboutuslistComponent, AboutusaddComponent, CoverphotolistComponent, CoverphotoaddComponent, GallaryphotolistComponent, GallaryphotoaddComponent, VisionmissionlistComponent, VisionmissionaddComponent, VideolistComponent, VideoaddComponent, AudiolistComponent, AudioaddComponent, TestimoniallistComponent, TestimonialaddComponent, ArticlelistComponent, ArticleaddComponent, SchedulelistComponent, ScheduleaddComponent, ProductaddComponent, ProductlistComponent, RedirectselfComponent, ProducteditComponent, AgencyListComponent, MyOrdersComponent, WarehouseOrdersComponent, WarehouseOrderDetailsComponent, EditAgencyComponent, AddOrderComponent, EditOrderComponent, DashboardV1Component, ComplaintsComponent, MessagesComponent, NotificationsComponent, SendNotificationsComponent, SalesreportComponent, DistsalesreportComponent, OrderreportComponent, OrdernotdispatchedComponent, OrderdispatchedComponent, DistributorvideoaddComponent, DistributorvideolistComponent, BannerbraddComponent, BannerbrlistComponent, DistributorviewComponent, FamerviewComponent, SctresultlistComponent, SctresultviewComponent, MlmlistComponent, AddagencyComponent, FarmerdashboardreportComponent, DistributordashboardreportComponent, CountaddComponent, CountlistComponent, InterenshiplistComponent, JoblistComponent, CareeraddComponent, CareerlistComponent, CareerdistributorlistComponent, ProductinfolistComponent, ProductinfoaddComponent, DistributoraddspecificComponent, MarqueeaddComponent, MarqueelistComponent, InterenshipviewComponent, InterenshipupdateComponent, DistviewComponent, DistupdateComponent, JobviewComponent, JobupdateComponent, BloglistallComponent, BloglistallreplyComponent, BloglistallviewComponent, WebenqlistComponent, WebenqviewComponent, DistupdatenewComponent, AddaddressComponent, AddcropComponent, EditcropComponent, ListcropComponent, ListaddressComponent, PrinciplelistComponent, PrincipleaddComponent, DistributorvideoviwedComponent, MessageviewComponent, ComplaintviewComponent, YoutubesuscriberviewComponent],
+  declarations: [AdminComponent, SidebarComponent, AdminsidebarComponent, FarmeraddComponent, FarmerlistComponent, PlotvisitlistComponent, AdminloginComponent, DistributoraddComponent, DistributorlistComponent, DistributorvisitComponent, DistributortargetvideolistComponent, DistributortargetvideoaddComponent, FarmermeetinglistComponent, DistributormeetinglistComponent, PlotvisitaddComponent, CompanyprofilelistComponent, CompanyprofileaddComponent, AboutuslistComponent, AboutusaddComponent, CoverphotolistComponent, CoverphotoaddComponent, GallaryphotolistComponent, GallaryphotoaddComponent, VisionmissionlistComponent, VisionmissionaddComponent, VideolistComponent, VideoaddComponent, AudiolistComponent, AudioaddComponent, TestimoniallistComponent, TestimonialaddComponent, ArticlelistComponent, ArticleaddComponent, SchedulelistComponent, ScheduleaddComponent, ProductaddComponent, ProductlistComponent, RedirectselfComponent, ProducteditComponent, AgencyListComponent, MyOrdersComponent, WarehouseOrdersComponent, WarehouseOrderDetailsComponent, EditAgencyComponent, AddOrderComponent, EditOrderComponent, DashboardV1Component, ComplaintsComponent, MessagesComponent, NotificationsComponent, SendNotificationsComponent, SalesreportComponent, DistsalesreportComponent, OrderreportComponent, OrdernotdispatchedComponent, OrderdispatchedComponent, DistributorvideoaddComponent, DistributorvideolistComponent, BannerbraddComponent, BannerbrlistComponent, DistributorviewComponent, FamerviewComponent, SctresultlistComponent, SctresultviewComponent, MlmlistComponent, AddagencyComponent, FarmerdashboardreportComponent, DistributordashboardreportComponent, CountaddComponent, CountlistComponent, InterenshiplistComponent, JoblistComponent, CareeraddComponent, CareerlistComponent, CareerdistributorlistComponent, ProductinfolistComponent, ProductinfoaddComponent, DistributoraddspecificComponent, MarqueeaddComponent, MarqueelistComponent, InterenshipviewComponent, InterenshipupdateComponent, DistviewComponent, DistupdateComponent, JobviewComponent, JobupdateComponent, BloglistallComponent, BloglistallreplyComponent, BloglistallviewComponent, WebenqlistComponent, WebenqviewComponent, DistupdatenewComponent, AddaddressComponent, AddcropComponent, EditcropComponent, ListcropComponent, ListaddressComponent, PrinciplelistComponent, PrincipleaddComponent, DistributorvideoviwedComponent, MessageviewComponent, ComplaintviewComponent, YoutubesuscriberviewComponent, DisttocompreportComponent, ViewOrderComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule,
+    
     HttpClientModule,
     NgxPaginationModule,
     CKEditorModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxUiLoaderModule,
     NgxChartsModule,
 

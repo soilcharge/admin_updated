@@ -29,35 +29,20 @@
               "src/styles.css",
               "src/assets/js/datatables.min.css",
               "node_modules/materialize-css/dist/css/materialize.css",
-              "node_modules/ngx-toastr/toastr.css"
-
-              // "src/assets/js/jquery.dataTables.min.css",
-              ,"src/assets/js/buttons.dataTables.min.css"
-
-              
-          
-             
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/js/buttons.dataTables.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/hammerjs/hammer.js",
               "src/assets/js/datatables.min.js",
               "node_modules/materialize-css/dist/js/materialize.js",
-
-
               "src/assets/js/dataTables.buttons.min.js",
               "src/assets/js/jszip.min.js",
               "src/assets/js/pdfmake.min.js",
               "src/assets/js/vfs_fonts.js",
               "src/assets/js/buttons.html5.min.js",
-              "src/assets/js/buttons.print.min.js",
-              
-
-              // "node_modules/core-js/client/shim.min.js",
-              // "node_modules/zone.js/dist/zone.js",
-              // "node_modules/reflect-metadata/Reflect.js",
-              // "node_modules/systemjs/dist/system.src.js"
-             
+              "src/assets/js/buttons.print.min.js"
             ]
           },
           "configurations": {
@@ -124,32 +109,20 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "node_modules/materialize-css/dist/css/materialize.css",
-              "node_modules/ngx-toastr/toastr.css"
-
-              // "src/assets/js/jquery.dataTables.min.css",
-              ,"src/assets/js/buttons.dataTables.min.css"
-             
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/js/buttons.dataTables.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/hammerjs/hammer.js",
               "src/assets/js/datatables.min.js",
-
-
               "src/assets/js/dataTables.buttons.min.js",
               "src/assets/js/jszip.min.js",
               "src/assets/js/pdfmake.min.js",
               "src/assets/js/vfs_fonts.js",
               "src/assets/js/buttons.html5.min.js",
               "src/assets/js/buttons.print.min.js",
-
-              "node_modules/materialize-css/dist/js/materialize.js",
-
-              // "node_modules/core-js/client/shim.min.js",
-              // "node_modules/zone.js/dist/zone.js",
-              // "node_modules/reflect-metadata/Reflect.js",
-              // "node_modules/systemjs/dist/system.src.js"
-        
+              "node_modules/materialize-css/dist/js/materialize.js"
             ]
           }
         },
@@ -181,5 +154,8 @@
       }
     }
   },
-  "defaultProject": "soilcharge"
+  "defaultProject": "soilcharge",
+  "cli": {
+    "analytics": "eb087a8d-72b0-4fa1-b4b4-790484265adb"
+  }
 }

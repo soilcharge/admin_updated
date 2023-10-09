@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DistributorService } from '../../distributor/distributor.service';
 import { ReportService } from '../../report/report.service';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-distsalesreport',
   templateUrl: './distsalesreport.component.html',

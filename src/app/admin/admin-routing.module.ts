@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+
 import { AdminComponent } from './admin.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { FarmeraddComponent } from './fcofield/farmer/farmeradd/farmeradd.component';
@@ -104,6 +105,8 @@ import { DistributorvideoviwedComponent } from './distributor/distributorvideovi
 import { ComplaintviewComponent } from './mobileapp/complaintview/complaintview.component';
 import { MessageviewComponent } from './mobileapp/messageview/messageview.component';
 import { YoutubesuscriberviewComponent } from './mobileapp/youtubesuscriberview/youtubesuscriberview.component';
+import { DisttocompreportComponent } from './report/disttocompreport/disttocompreport.component';
+import { ViewOrderComponent } from './orders/view-order/view-order.component';
 const routes: Routes = [
   {
     path: '',
@@ -137,6 +140,10 @@ const routes: Routes = [
       {
         path: 'order-details/:order_no/:dist_id',
         component: EditOrderComponent
+      },
+      {
+        path:'viewreportsales/:order_no/:dist_id',
+        component:ViewOrderComponent
       },
       {
         path: 'agency-list',
@@ -499,6 +506,13 @@ const routes: Routes = [
         path:'salesreport',
         component:SalesreportComponent
       },
+
+      {
+        path:'disttocompreport',
+        component:DisttocompreportComponent
+      },
+
+      
 
       {
         path:'amtpaiddist',

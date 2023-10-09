@@ -17,7 +17,7 @@ import { ForbiddenComponent } from './commonpages/forbidden/forbidden.component'
 import { AgmCoreModule } from '@agm/core';
 
 import { NgxChartsModule} from '@swimlane/ngx-charts';
-//import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 // const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 //   bgsType: SPINNER.fadingCircle,
@@ -69,6 +69,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig =
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     //  MaterializeModule
     ReactiveFormsModule,
     HttpClientModule,

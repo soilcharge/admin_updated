@@ -31,7 +31,13 @@ export class OrderService {
     this.token = this.getToken();
     return this.http.post(`${this.urlforapi}weborderlist?token=${this.token}`, null);
   }
-
+  getOrder1(order_no, distributor_id): Observable<any> {
+    this.token = this.getToken();
+    let data = new FormData();
+    data.set('order_no', order_no);
+    data.set('created_disctributor_id', distributor_id);
+    return this.http.post(`${this.urlforapi}viewreportsales?token=${this.token}`, data);
+  }
   getOrder(order_no, distributor_id): Observable<any> {
     this.token = this.getToken();
     let data = new FormData();
@@ -39,6 +45,8 @@ export class OrderService {
     data.set('created_disctributor_id', distributor_id);
     return this.http.post(`${this.urlforapi}weborderget?token=${this.token}`, data);
   }
+ 
+
 
   addOrder(formdata: any): Observable<any> {
     this.token = this.getToken();

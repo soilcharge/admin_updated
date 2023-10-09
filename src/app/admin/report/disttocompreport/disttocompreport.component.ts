@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-// import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ReportService } from '../../report/report.service';
-
+import {FormsModule } from '@angular/forms'
 @Component({
-  selector: 'app-salesreport',
-  templateUrl: './salesreport.component.html',
-  styleUrls: ['./salesreport.component.css']
+  selector: 'app-disttocompreport',
+  templateUrl: './disttocompreport.component.html',
+  styleUrls: ['./disttocompreport.component.css']
 })
-export class SalesreportComponent implements OnInit {
+export class DisttocompreportComponent implements OnInit {
   submitted: boolean = false;
   formContent: FormGroup;
   p: number = 1;
@@ -18,7 +17,6 @@ export class SalesreportComponent implements OnInit {
   totalamount: any;
   datefrom: any;
   dateto: any;
-  
   totalorder: any;
   constructor(private os: ReportService, private router: Router, private toastr: ToastrService, private fb: FormBuilder,) { }
 
@@ -31,7 +29,7 @@ export class SalesreportComponent implements OnInit {
   }
 
   getOrders() {
-    this.os.getOrders(null).subscribe(res => {
+    this.os.getOrders1(null).subscribe(res => {
       if (res['result']) {
         this.orders = res['data'];
         this.totalamount = res['totalamount'];
@@ -51,7 +49,7 @@ export class SalesreportComponent implements OnInit {
     }
 
 
-    this.os.getOrders(this.formContent.value).subscribe(res => {
+    this.os.getOrders1(this.formContent.value).subscribe(res => {
       if (res['result']) {
         this.orders = res['data'];
         this.totalamount = res['totalamount'];
@@ -62,10 +60,12 @@ export class SalesreportComponent implements OnInit {
     });
   }
 
+  // editOrder(id) {
+  //   this.router.navigate(['/admin', 'viewreportsales', id,]);
+  // }
   editOrder(order_no, created_disctributor_id) {
-    this.router.navigate(['/admin', 'order-details', order_no, created_disctributor_id]);
+    this.router.navigate(['/admin', 'viewreportsales', order_no, created_disctributor_id]);
   }
-
 }
 
 

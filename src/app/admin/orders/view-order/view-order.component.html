@@ -5,12 +5,12 @@
         <span class="page-title">View/Edit Order </span>
         <ul class="breadcrumbs">
           <li><a routerLink="/admin/dashboard">Home</a></li>
-          <li><a routerLink="/admin/my-orders">My Orders</a></li>
+          <!-- <li><a routerLink="/admin/viewreportsales">My Orders</a></li> -->
           <li class="active">View/Edit Order</li>
         </ul>
       </div>
     </div>
-    <div class="row" *ngIf="order && order.account_approved=='yes'">
+    <div class="row">
       <div class="col s12 m12 l12">
         <div class="card">
           <div class="card-content">
@@ -27,12 +27,12 @@
                     <th>Order for</th>
                     <td>{{order.order_created_by|uppercase}}</td>
                     <th>Order Status</th>
-                    <td colspan="2">
+                    <!-- <td colspan="2">
                       <span *ngIf="order.account_approved=='yes'">Order Verified |</span>
                       <span *ngIf="order.forward_to_warehouse=='yes'">&nbsp;Forwarded to Warehouse |</span>
                       <span *ngIf="order.order_dispatched=='yes'">&nbsp;Dispatched</span>
                       <span *ngIf="order.order_dispatched=='no'">&nbsp;Not Dispatched</span>
-                    </td>
+                    </td> -->
                     <td></td>
                   </tr>
                   <tr>
