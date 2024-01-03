@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 // };
 
 import { FilterPipe } from './filter.pipe';
+import { BehaviorSubject } from 'rxjs';
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig =

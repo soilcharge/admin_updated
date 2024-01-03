@@ -36,9 +36,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr  *ngFor="let datalist of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
-                                    <td>{{(5*(p-1))+(i+1)}}</td>
-                                    <td style="white-space: nowrap"><span >{{datalist.title}}</span></td>
+                                <tr  *ngFor="let datalist of alllist | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+                                    <td>{{(10*(p-1))+(i+1)}}</td>
+                                    <td style="word-break: break-all"><span >{{datalist.title}}</span></td>
                                     <td><span ><div [innerHtml]="datalist.description"></div></span></td>
                                     <td>{{datalist.url}}</td>
                                     <td>{{datalist.language}}</td>
@@ -54,7 +54,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
                     </div>
                 </div>
             </div>

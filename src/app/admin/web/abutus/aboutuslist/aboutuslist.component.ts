@@ -19,6 +19,7 @@ export class AboutuslistComponent implements OnInit {
   ngOnInit(): void {
     this.webService.getAboutUsList().subscribe(datalist => {
       this.alllist = datalist['data'];
+      this.alllist.sort((a, b) => b.id - a.id);
     });
 
   }

@@ -26,6 +26,7 @@ export class NotificationsComponent implements OnInit {
     this.ns.getNotifications().subscribe((res) => {
       this.ngxService.start();
       this.notifications = res['data'];
+      this.notifications.sort((a,b)=>b.id-a.id)
       this.ngxService.stop();
     });
   }

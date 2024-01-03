@@ -26,22 +26,23 @@ export class DistributorvideolistComponent implements OnInit{
     this.DistributorvideoService.DistributorVideoList().subscribe(datalist => {
       if (datalist['result'] == true) {
         this.alllist = datalist['data'];
+        this.alllist.sort((a,b)=>b.id-a.id)
       }
     });
     this.ngxService.stop();
 
     
-    $(document).ready(function () {
-      setTimeout(() => {
-        let table = $('#pagedatatable').DataTable({
-          ordering: true,
-          lengthChange: false,
-          showNEntries: false,
-        })
-      }, 4000)
-    })
+  //   $(document).ready(function () {
+  //     setTimeout(() => {
+  //       let table = $('#pagedatatable').DataTable({
+  //         ordering: true,
+  //         lengthChange: false,
+  //         showNEntries: false,
+  //       })
+  //     }, 4000)
+  //   })
+  // }
   }
-
 
   deleteItem(id) {
     var obj = {

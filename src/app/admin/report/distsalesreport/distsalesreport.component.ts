@@ -40,6 +40,7 @@ export class DistsalesreportComponent implements OnInit {
     this.os.getDistOrders(null).subscribe(res => {
       if (res['result']) {
         this.orders = res['data'];
+        this.orders.sort((a, b) => b.id - a.id);
         this.totalamount = res['totalamount'];
         this.totalorder = res['totalorder'];
         this.datefrom = res['datefrom'];
@@ -60,6 +61,7 @@ export class DistsalesreportComponent implements OnInit {
     this.os.getDistOrders(this.formContent.value).subscribe(res => {
       if (res['result']) {
         this.orders = res['data'];
+        this.orders.sort((a, b) => b.id - a.id);
         this.totalamount = res['totalamount'];
         this.totalorder = res['totalorder'];
         this.datefrom = res['datefrom'];

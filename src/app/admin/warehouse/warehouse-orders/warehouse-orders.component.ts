@@ -22,6 +22,7 @@ export class WarehouseOrdersComponent implements OnInit {
     this.ws.getOrders().subscribe(res=>{
       if (res['result']) {
         this.orders = res['data'];
+        this.orders.sort((a, b) => b.id - a.id);
       }
     });
   }

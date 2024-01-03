@@ -11,6 +11,9 @@
                 </ul>
             </div>
         </div>
+        <button  style="margin-left:20px" class="btn btn-info text-white font-weight-normal text-xs" (click)="exportToExcel()">Export to Excel</button>
+        &nbsp;&nbsp;&nbsp;<button  class="btn btn-info text-white font-weight-normal text-xs" (click)="exportToPdf()">Export to PDF</button>
+
 
         <div class="row">
             <div class="col s12 m12 l12">
@@ -22,8 +25,7 @@
                             </div>
                         </div>
                         <div class="nowrap">
-                            <table style="font-size: small" class="datatable responsive-table highlight"
-                                id="pagedatatable">
+                            <table style="font-weight:small;" class="datatable responsive-table highlight" id="exportTable">
                                 <thead>
                                     <tr>
                                         <th style="white-space: nowrap">Sr No.</th>
@@ -39,9 +41,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr
+                                    <tr *ngFor="let listdata of alllist | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+                                        <td>{{(10*(p-1))+(i+1)}}</td>
+                                        <!-- <td></td> -->
+                                    <!-- <tr
                                     *ngFor="let listdata of alllist ;let i=index;">
-                                        <td>{{i+1}}</td>
+                                        <td>{{i+1}}</td> -->
                                         <td style="white-space: nowrap"><span>{{listdata.fname}} {{listdata.mname}}
                                                 {{listdata.lname}}</span>&nbsp; &nbsp;
                                             <span *ngIf="listdata.new_user_type"
@@ -74,7 +79,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
                         </div>
                     </div>
                 </div>

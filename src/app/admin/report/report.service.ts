@@ -57,7 +57,8 @@ export class ReportService {
 
   getAllOrders(data): Observable<any> {
     this.token = this.getToken();
-    return this.http.post(`${this.urlforapi}weballorderreport?token=${this.token}`, data);
+    return this.http.post(`${this.urlforapi}weborderlist?token=${this.token}`, data);
+    // return this.http.post(`${this.urlforapi}weballorderreport?token=${this.token}`, data);
   }
 
   

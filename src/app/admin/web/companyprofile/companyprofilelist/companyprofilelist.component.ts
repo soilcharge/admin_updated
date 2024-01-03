@@ -23,6 +23,7 @@ export class CompanyprofilelistComponent implements OnInit {
 
     this.webService.getCompanyGetList().subscribe((datalist) => {
       this.alllist = datalist['data']
+      this.alllist.sort((a, b) => b.id - a.id);
     })
   }
 

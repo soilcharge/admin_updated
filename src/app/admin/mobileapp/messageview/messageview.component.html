@@ -30,8 +30,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let m of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
-                                    <td>{{(5*(p-1))+(i+1)}}</td>
+                                <tr *ngFor="let m of alllist | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+                                    <td>{{(10*(p-1))+(i+1)}}</td>
                                     <td style="white-space: nowrap"><span >{{m.date}}</span></td>
                                     <td style="white-space: nowrap"><span >{{m.recipient_name}}</span></td>
                                     <td>{{m.subject}}</td>
@@ -40,7 +40,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
                         </div>
                     </div>
                 </div>

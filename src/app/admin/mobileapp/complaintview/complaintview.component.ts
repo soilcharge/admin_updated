@@ -16,17 +16,18 @@ export class ComplaintviewComponent implements OnInit {
     ngOnInit(): void {
       this.mobileappService.getMobileAppHetComplaintList().subscribe(list => {
         this.alllist = list['data'];
+        this.alllist.sort((a,b)=>b.id-a.id)
       });
   
-      $(document).ready(function () {
-        setTimeout(() => {
-          let table = $('#pagedatatable').DataTable({
-            ordering: true,
-            lengthChange: false,
-            showNEntries: false,
-          })
-        }, 4000)
-      })
+      // $(document).ready(function () {
+      //   setTimeout(() => {
+      //     let table = $('#pagedatatable').DataTable({
+      //       ordering: true,
+      //       lengthChange: false,
+      //       showNEntries: false,
+      //     })
+      //   }, 4000)
+      // })
       
     }
   }

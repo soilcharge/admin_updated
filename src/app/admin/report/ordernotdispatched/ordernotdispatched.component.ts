@@ -31,6 +31,7 @@ export class OrdernotdispatchedComponent implements OnInit {
     this.os.getOrderNotDispatched(null).subscribe(res => {
       if (res['result']) {
         this.orders = res['data'];
+        this.orders.sort((a, b) => b.id - a.id);
         this.totalamount = res['totalamount'];
         this.datefrom = res['datefrom'];
         this.dateto = res['dateto'];
@@ -51,6 +52,7 @@ export class OrdernotdispatchedComponent implements OnInit {
     this.os.getOrderNotDispatched(this.formContent.value).subscribe(res => {
       if (res['result']) {
         this.orders = res['data'];
+        this.orders.sort((a, b) => b.id - a.id);
         this.totalamount = res['totalamount'];
         this.datefrom = res['datefrom'];
         this.dateto = res['dateto'];

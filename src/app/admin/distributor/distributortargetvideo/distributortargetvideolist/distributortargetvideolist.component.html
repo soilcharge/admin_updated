@@ -36,11 +36,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let listdata of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
-                                    <td>{{(5*(p-1))+(i+1)}}</td>
+                                <tr *ngFor="let listdata of alllist | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+                                    <td>{{(10*(p-1))+(i+1)}}</td>
                                     <td><span style="text-transform:uppercase">{{listdata.dfname}} {{listdata.dmname}}
                                             {{listdata.dlname}}</span></td>
-                                    <td><span style="text-transform:uppercase">{{listdata.date | date: 'dd/mm/yyyy'}}</span></td>
+                                    <td><span style="text-transform:uppercase">{{listdata.date}}</span></td>
                                     <td><span style="text-transform:uppercase">{{listdata.title}}</span></td>
                                     <!-- <td><span style="text-transform:uppercase">{{listdata.description}}</span></td> -->
                                     <td><span style="text-transform:uppercase">{{listdata.url}}</span></td>
@@ -50,8 +50,9 @@
                                             (click)="getForEdit(listdata.id)"><i class="material-icons">edit</i></a>
                                         &nbsp;
                                         <a href="JavaScript:void(0)" class="btn-floating" title="Delete"
-                                            style="background-color: red;" (click)="delete(listdata.id)"
-                                            onclick="confirm('Are you sure want to delete distributor video?')"><i
+                                            style="background-color: red;" (click)="deleteItem(listdata.id)"
+                                       
+                                            ><i
                                                 class="material-icons">delete</i></a>
                                     </td>
                                 </tr>

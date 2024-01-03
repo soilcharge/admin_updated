@@ -36,6 +36,7 @@ export class DisttocompreportComponent implements OnInit {
         this.datefrom = res['datefrom'];
         this.dateto = res['dateto'];
         this.totalorder = res['totalorder'];
+        this.orders.sort((a, b) => b.id - a.id);
       }
     });
   }

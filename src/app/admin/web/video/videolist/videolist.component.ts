@@ -23,6 +23,7 @@ export class VideolistComponent implements OnInit {
     this.webService.webVideoList().subscribe(datalist => {
       if (datalist['result'] == true) {
         this.alllist = datalist['data'];
+        this.alllist.sort((a, b) => b.id - a.id);
       }
     });
     this.ngxService.stop();

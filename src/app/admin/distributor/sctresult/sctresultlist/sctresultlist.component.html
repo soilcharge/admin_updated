@@ -23,32 +23,68 @@
                                             class="material-icons left">library_add</i>Add Distributor</a></span>
                             </div>
                         </div>
-                        <div class="nowrap">
-                          <table style="font-size: small" class="datatable responsive-table highlight" id="pagedatatable">
+                        <!-- <div class="nowrap"> -->
+                          <table style="font-size: small" class="datatable responsive-table highlight" id="">
                             <thead>
                                 <tr>
-                                    <th style="white-space: nowrap">Sr No.</th>
-                                    <th style="white-space: nowrap">Name</th>
-                                    <th style="white-space: nowrap">Title</th>
-                                    <th style="white-space: nowrap">Area</th>
-                                    <th style="white-space: nowrap">Description</th>
-                                    <th style="white-space: nowrap">Latitude</th>
-                                    <th style="white-space: nowrap">Longitude</th>
+                                    <th>Sr No.</th>
+                                    <th >Name</th>
+                                    <th >Title</th>
+                                    <th >Area</th>
+                                    <th >Description</th>
+                                    <th >Latitude</th>
+                                    <th >Longitude</th>
+                                    <th >Photo One</th>
+                                    <th >Photo Two</th>
+                                    <th >Photo Three</th>
+                                    <th >Photo Four</th>
+                                    <th >Photo Five</th>
                                     <!-- <th style="white-space: nowrap">Created By</th> -->
 
-                                    <th style="white-space: nowrap">Action</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let listdata of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
-                                    <td>{{(5*(p-1))+(i+1)}}</td>
-                                    <td style="white-space: nowrap"><span >{{listdata.dfname}} {{listdata.dmname}}
+                                <tr *ngFor="let listdata of alllist | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+                                    <td>{{(10*(p-1))+(i+1)}}</td>
+                                    <td ><span >{{listdata.dfname}} {{listdata.dmname}}
                                             {{listdata.dlname}}</span></td>
-                                    <td style="white-space: nowrap"><span >{{listdata.title}}</span></td>
-                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.area}}</span></td>
-                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.description}}</span></td>
-                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.latitude}}</span></td>
-                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.longitude}}</span></td>
+                                    <td ><span >{{listdata.title}}</span></td>
+                                    <td ><span style="text-transform:uppercase">{{listdata.area}}</span></td>
+                                    <td ><span style="text-transform:uppercase">{{listdata.description}}</span></td>
+                                    <td ><span style="text-transform:uppercase">{{listdata.latitude}}</span></td>
+                                    <td ><span style="text-transform:uppercase">{{listdata.longitude}}</span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopathone}} target="_blank" download>
+
+                                       <img src={{listdata.photopathone}} alt="image" height="50px" width="30px">
+                                       
+                                     </a>
+                                    </span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopathtwo}} target="_blank" download>
+
+                                       <img src={{listdata.photopathtwo}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopaththree}} target="_blank" download>
+
+                                       <img src={{listdata.photopaththree}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopathfour}} target="_blank" download>
+
+                                       <img src={{listdata.photopathfour}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
+                                    <td><span>
+                                        <a href={{listdata.photopathfive}} target="_blank" download>
+
+                                       <img src={{listdata.photopathfive}} alt="image" height="50px">
+                                     </a>
+                                    </span></td>
                                     <!-- <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.created_by}}</span></td> -->
                                  
                                     <td style="white-space: nowrap;">
@@ -68,5 +104,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 </main>

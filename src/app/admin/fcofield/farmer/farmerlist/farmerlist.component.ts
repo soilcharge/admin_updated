@@ -8,6 +8,7 @@ import { HelperService } from 'src/app/helper.service';
 import { DistributorService } from 'src/app/admin/distributor/distributor.service';
 // import { NgLocalization } from '@angular/common';
 // import { ResourceLoader } from '@angular/compiler';
+
 declare var $: any;
 @Component({
   selector: 'app-farmerlist',
@@ -73,15 +74,15 @@ export class FarmerlistComponent implements OnInit {
     });
 
 
-    $(document).ready(function () {
-      setTimeout(() => {
-        let table = $('#pagedatatable').DataTable({
-          ordering: true,
-          lengthChange: true,
-          showNEntries: false,
-        })
-      }, 4000)
-    })
+    // $(document).ready(function () {
+    //   setTimeout(() => {
+    //     let table = $('#pagedatatable').DataTable({
+    //       ordering: true,
+    //       lengthChange: true,
+    //       showNEntries: false,
+    //     })
+    //   }, 4000)
+    // })
 
   }
 

@@ -79,8 +79,8 @@
                             </thead>
                             <tbody>
                                 <tr
-                                    *ngFor="let order of orders | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
-                                    <td>{{(5*(p-1))+(i+1)}}</td>
+                                    *ngFor="let order of orders | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+                                    <td>{{(10*(p-1))+(i+1)}}</td>
                                     <td><span>{{order.order_no}}</span></td>
                                     <td style="white-space: nowrap"><span>{{order.fname}} {{order.mname}}
                                             {{order.lname}}</span></td>

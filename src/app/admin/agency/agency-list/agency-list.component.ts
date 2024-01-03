@@ -23,15 +23,15 @@ export class AgencyListComponent implements OnInit {
   ngOnInit(): void {
     this.getAgencyList();
 
-    $(document).ready(function () {
-      setTimeout(() => {
-        let table = $('#pagedatatable').DataTable({
-          ordering: true,
-          lengthChange: false,
-          showNEntries: false,
-        })
-      }, 4000)
-    })
+    // $(document).ready(function () {
+    //   setTimeout(() => {
+    //     let table = $('#pagedatatable').DataTable({
+    //       ordering: true,
+    //       lengthChange: false,
+    //       showNEntries: false,
+    //     })
+    //   }, 4000)
+    // })
 
     
   }
@@ -47,22 +47,66 @@ export class AgencyListComponent implements OnInit {
     });
   }
 
+
   editAgency(id) {
     this.router.navigate(['/admin', 'edit-agency', id]);
   }
-
-  deleteAgency(id) {
+  deleteagency(id) {
     let ans = window.confirm('Do you really want to delete this agency?');
     if (ans) {
-      this.as.deleteAgency(id).subscribe(res=>{
-        if (res['result']) {
-          this.toastr.success('Agency deleted successfully!');
+      this.as.deleteAgency(id).subscribe(res => {
+        if (res['result'] == true) {
+          alert(`data deleted`);
           this.getAgencyList();
         } else {
-          this.toastr.error(res['message']);
+          alert(`data not deleted`);
+          // Your code for the default else part goes here
+          // For example, you can add a function call or other logic
+          this.handleDeleteError();
         }
       });
     }
   }
+  
+  // Add a function for the default else part
+  handleDeleteError() {
+    // Your code for handling the case where data is not deleted
+    // For example, you can display an error message or perform other actions
+    console.log("Data not deleted - handleDeleteError");
+  }
+  
 
+  // deleteagency(id) {
+  //   let ans = window.confirm('Do you really want to delete this agency?');
+  //   if (ans) {
+  //     this.as.deleteAgency(id).subscribe(res=>{
+  //       if (res['data']) {
+  //         this.toastr.success('Agency deleted successfully!');
+  //         console.log("data deleted");
+          
+  //         this.getAgencyList();
+  //       } else {
+  //         this.toastr.error(res['message']);
+  //       }
+  //     });
+  //   }
+  // }
+
+  
+ 
+
+//   deleteAgency(id: number) {
+//     const confirmation = confirm('Are you sure you want to delete this category?');
+//     if (confirmation) {
+//       this.as.deleteAgency(id).subscribe(
+//         (res) =>
+//         if (res['result']) {
+//                   this.toastr.success('Agency deleted successfully!');
+//                   this.getAgencyList();
+//                 } else {
+//                   this.toastr.error(res['message']);
+//                 }
+//               }
+//             )}
+// }
 }

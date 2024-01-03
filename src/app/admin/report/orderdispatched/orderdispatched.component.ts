@@ -31,6 +31,7 @@ export class OrderdispatchedComponent implements OnInit {
     this.os.getOrderDispatched(null).subscribe(res => {
       if (res['result']) {
         this.orders = res['data'];
+        this.orders.sort((a, b) => b.id - a.id);
         this.totalamount = res['totalamount'];
         this.datefrom = res['datefrom'];
         this.dateto = res['dateto'];

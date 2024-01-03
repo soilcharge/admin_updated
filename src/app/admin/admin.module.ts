@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -29,7 +29,7 @@ import { CompanyprofileaddComponent } from './web/companyprofile/companyprofilea
 //import { from } from 'rxjs';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from "@angular/forms"
+import { ReactiveFormsModule } from "@angular/forms";
 import { AboutuslistComponent } from './web/abutus/aboutuslist/aboutuslist.component';
 import { AboutusaddComponent } from './web/abutus/aboutusadd/aboutusadd.component';
 import { CoverphotolistComponent } from './web/coverphoto/coverphotolist/coverphotolist.component';

@@ -23,18 +23,18 @@
                                     <input id="datefrom" name="datefrom" type="date" formControlName="datefrom"
                                         class="active validate" required />
                                     <label for="datefrom">From Date<span class="red-text">*</span></label>
-                                    <div *ngIf="f.datefrom.errors && submitted">
+                                    <!-- <div *ngIf="f.datefrom.errors && submitted">
                                         <span class="red-text"><strong>Required/Invalid*</strong></span>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="col s2 m2 l2">To Date</div>
                                 <div class="col s2 m2 l2">
                                     <input id="dateto" name="dateto" type="date" formControlName="dateto"
                                         class="active validate" required />
                                     <label for="dateto">To Date<span class="red-text">*</span></label>
-                                    <div *ngIf="f.dateto.errors && submitted">
+                                    <!-- <div *ngIf="f.dateto.errors && submitted">
                                         <span class="red-text"><strong>Required/Invalid*</strong></span>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <div class="col s2 m2 l2">
@@ -93,11 +93,23 @@
                                         <span *ngIf="order.order_dispatched=='yes'">&nbsp;Dispatched</span>
                                         <span *ngIf="order.order_dispatched=='no'">&nbsp;Not Dispatched</span>
                                       </td>
-                                    <td style="white-space: nowrap">
-                                        <a href="javaScript:void(0)" class="btn-floating" title="View Details"
-                                            style="background-color: #26A69A;"
-                                            (click)="editOrder(order.order_no, order.created_disctributor_id)"><i
-                                                class="material-icons">remove_red_eye</i></a>
+
+                                    
+                                      <td style="white-space: nowrap">
+                                        <a href="javaScript:void(0)" class="btn-floating" title="View Details" style="background-color: #26A69A;" (click)="editOrder(order.order_no, order.created_disctributor_id)"><i
+                                        class="material-icons"
+                                        >remove_red_eye</i></a>
+                                        &nbsp;
+                                        <a *ngIf="order.account_approved=='no'" href="javaScript:void(0)" class="btn-floating" title="Verify" style="background-color: green;" (click)="verifyOrder(order.order_no, order.created_disctributor_id)"><i
+                                                class="material-icons"
+                                                >done</i></a>
+                                        &nbsp;
+                                        <a *ngIf="order.forward_to_warehouse=='no'" href="javaScript:void(0)" class="btn-floating" title="Forward" style="background-color: blue;" (click)="forwardOrder(order.order_no, order.created_disctributor_id)"><i
+                                                class="material-icons">arrow_forward</i></a>
+  
+                                        &nbsp;
+                                        <a *ngIf="order.forward_to_warehouse=='no'" href="javaScript:void(0)" class="btn-floating" title="Delete" style="background-color: red;" (click)="deleteOrder(order.order_no, order.created_disctributor_id)"><i
+                                                        class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
                             </tbody>

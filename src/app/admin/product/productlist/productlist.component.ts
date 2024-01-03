@@ -24,24 +24,24 @@ export class ProductlistComponent implements OnInit {
 
     
 
-  $(document).ready(function () {
-      setTimeout(() => {
-        let table = $('#pagedatatable').DataTable({
-          ordering: true,
-          lengthChange: false,
-          pageLength: 5,
-          showNEntries: false,
+  // $(document).ready(function () {
+  //     setTimeout(() => {
+  //       let table = $('#pagedatatable').DataTable({
+  //         ordering: true,
+  //         lengthChange: false,
+  //         pageLength: 5,
+  //         showNEntries: false,
 
-        //   dom: 'Bfrtip',
-        // buttons: [
-        //   //'copy', 'csv', 'excel', 'pdf', 'print'
-        //   'excel', 'pdf'
-        // ]
+  //       //   dom: 'Bfrtip',
+  //       // buttons: [
+  //       //   //'copy', 'csv', 'excel', 'pdf', 'print'
+  //       //   'excel', 'pdf'
+  //       // ]
 
           
-        })
-      }, 4000)
-    })
+  //       })
+  //     }, 4000)
+  //   })
 
   }
 
@@ -50,6 +50,7 @@ export class ProductlistComponent implements OnInit {
     this.webService.webProductList().subscribe(datalist => {
       if (datalist['result'] == true) {
         this.alllist = datalist['data'];
+        this.alllist.sort((a,b)=>b.id - a.id)
       }
       if (datalist['error'] == true) {
         this.toastr.error("Something went wrong " + datalist['message']);

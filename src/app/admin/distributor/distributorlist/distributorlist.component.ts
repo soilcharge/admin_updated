@@ -18,15 +18,15 @@ export class DistributorlistComponent implements OnInit {
   ngOnInit(): void {
     this.getDistributors();
 
-    $(document).ready(function () {
-      setTimeout(() => {
-        let table = $('#pagedatatable').DataTable({
-          ordering: true,
-          lengthChange: false,
-          showNEntries: false,
-        })
-      }, 4000)
-    })
+    // $(document).ready(function () {
+    //   setTimeout(() => {
+    //     let table = $('#pagedatatable').DataTable({
+    //       ordering: true,
+    //       lengthChange: false,
+    //       showNEntries: false,
+    //     })
+    //   }, 4000)
+    // })
 
   }
 
@@ -34,6 +34,7 @@ export class DistributorlistComponent implements OnInit {
     this.distributorService.getDistributorList().subscribe(list => {
       if(list['result']==true) {
         this.alllist = list['data'];
+        this.alllist.sort((a, b) => b.id - a.id);
       }
     });
   }

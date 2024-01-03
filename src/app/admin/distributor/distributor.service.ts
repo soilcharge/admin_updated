@@ -153,9 +153,9 @@ export class DistributorService {
     return this.http.post(`${this.urlforapi}distributortargetvideoupdate_distributorweb?token=${this.token}`, obj);
   }
 
-  deleteDistirbutorVideoById(obj) {
+  deleteDistirbutorVideoById(data) {
     this.token = this.getToken();
-    return this.http.post(`${this.urlforapi}distributortargetvideodelete_distributorweb?token=${this.token}`, obj);
+    return this.http.post(`${this.urlforapi}distributortargetvideodelete_distributorweb?token=${this.token}`, data);
   }
 
   blockDistributor(obj) {

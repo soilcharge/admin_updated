@@ -20,6 +20,7 @@ export class MarqueelistComponent implements OnInit {
   ngOnInit(): void {
     this.WebService.getMarqueList().subscribe(datalist => {
       this.alllist = datalist['data'];
+      this.alllist.sort((a, b) => b.id - a.id);
     });
 
   }

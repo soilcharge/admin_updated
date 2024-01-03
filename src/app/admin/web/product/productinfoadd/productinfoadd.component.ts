@@ -5,7 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
-import * as M from "materialize-css/dist/js/materialize";
+// import * as M from "materialize-css/dist/js/materialize";
+import * as M from 'materialize-css';
+
 import { OrderService } from 'src/app/admin/orders/order.service';
 declare var $: any;
 @Component({

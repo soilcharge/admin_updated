@@ -5,6 +5,11 @@
   To learn more about this file see: https://angular.io/config/solution-tsconfig.
 */
 {
+  "compilerOptions": {
+    // other options...
+    "types": ["materialize-css"],
+    // "typeRoots": ["node_modules/@types", "src/types"],
+  },
   "files": [],
   "references": [
     {
@@ -13,5 +18,8 @@
     {
       "path": "./tsconfig.spec.json"
     }
-]
+  ]
 }
+
+
+

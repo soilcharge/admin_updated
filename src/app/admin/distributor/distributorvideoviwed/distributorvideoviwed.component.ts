@@ -18,15 +18,15 @@ export class DistributorvideoviwedComponent implements OnInit {
       this.alllist = list['data'];
     });
 
-    $(document).ready(function () {
-      setTimeout(() => {
-        let table = $('#pagedatatable').DataTable({
-          ordering: true,
-          lengthChange: false,
-          showNEntries: false,
-        })
-      }, 4000)
-    })
+    // $(document).ready(function () {
+    //   setTimeout(() => {
+    //     let table = $('#pagedatatable').DataTable({
+    //       ordering: true,
+    //       lengthChange: false,
+    //       showNEntries: false,
+    //     })
+    //   }, 4000)
+    // })
     
   }
 }

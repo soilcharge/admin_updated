@@ -34,6 +34,7 @@ export class FamerviewComponent implements OnInit {
   filetype: any;
   filetypepresent: boolean = false;
   filetypes: Array<string> = ['image/png', 'image/PNG'];
+  photo: any;
   constructor(
     public fcofieldService: FcofieldService,
     public http: HttpClient,
@@ -93,7 +94,7 @@ export class FamerviewComponent implements OnInit {
         Validators.pattern(/^[0-9]$/),
       ]),
       password: new FormControl('', [Validators.required]),
-      farmerphoto: new FormControl(''),
+      photo: new FormControl(''),
       datafor: new FormControl('0'),
       user_id: new FormControl('0'),
     });
@@ -103,7 +104,7 @@ export class FamerviewComponent implements OnInit {
 
     if (this.editdata[0]) {
       const editdatanew = this.editdata[0];
-      this.farmerphotoview = editdatanew.photo;
+      this.photo = editdatanew.photo;
       this.showphoto = true;
 
       this.farmerForm.patchValue({

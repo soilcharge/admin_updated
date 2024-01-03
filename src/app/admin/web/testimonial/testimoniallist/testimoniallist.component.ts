@@ -24,6 +24,7 @@ export class TestimoniallistComponent implements OnInit {
     this.webService.webTestimonialsList().subscribe(datalist => {
       if (datalist['result'] == true) {
         this.alllist = datalist['data'];
+        this.alllist.sort((a, b) => b.id - a.id);
       }
     });
     this.ngxService.stop();

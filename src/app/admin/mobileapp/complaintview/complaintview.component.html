@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="nowrap">
-                          <table style="font-size: small;" class="datatable responsive-table highlight" id="pagedatatable">
+                          <table style="font-size: small;" class="datatable responsive-table highlight" id="exportTable">
                             <thead>
                                 <tr>
                                     <th style="white-space: nowrap">Sr No.</th>
@@ -30,17 +30,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let m of alllist | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
-                                    <td>{{(5*(p-1))+(i+1)}}</td>
+                                <tr *ngFor="let m of alllist | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+                                    <td>{{(10*(p-1))+(i+1)}}</td>
                                     <td style="white-space: nowrap"><span >{{m.date}}</span></td>
                                     <td style="white-space: nowrap"><span >{{m.recipient_name}}</span></td>
                                     <td>{{m.subject}}</td>
-                                    <td>{{m.message}}</td>
+                                    <td>{{m.complaint}}</td>
                                     <!-- <td style="white-space: nowrap"><a href="javacript:void(0)">{{m.document}}</a></td> -->
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
                         </div>
                     </div>
                 </div>
