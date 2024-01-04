@@ -25,16 +25,25 @@
                                 <span style="float: right;"> &nbsp;&nbsp;&nbsp;
                                 <a routerLink="/admin/distributor-addspecific" class="waves-effect waves-light btn"><i
                                             class="material-icons left">library_add</i>Add Distributor Specific</a></span>
-                            </div>
+                                            <button  style="margin-left:100px" class="btn btn-info text-white font-weight-normal text-xs" (click)="exportToExcel()">Export to Excel</button>
+                                            &nbsp;&nbsp;<button  class="btn btn-info text-white font-weight-normal text-xs" (click)="exportToPdf()">Export to PDF</button>
+                                    
+                                        </div>
                         </div>
+                        <div class="row">
+                        <div class="input-field col s3">
+                            <input [(ngModel)]="searchText" type="text" placeholder="Search">
+                        </div>
+                    </div>
                         <div class="nowrap">
-                          <table style="font-size: small" class="datatable responsive-table highlight" id="pagedatatable">
+                          <table style="font-size: small" class="datatable responsive-table highlight" id="exportTable">
                             <thead>
                                 <tr>
                                     <th style="white-space: nowrap">Sr No.</th>
                                     <th style="white-space: nowrap">Name</th>
                                     <th style="white-space: nowrap">User Name / Password</th>
                                     <th style="white-space: nowrap">Contact Number</th>
+                                    <th style="white-space: nowrap">Date</th>
                                     <th style="white-space: nowrap">State</th>
                                     <th style="white-space: nowrap">District</th>
                                     <th style="white-space: nowrap">Taluka</th>
@@ -47,7 +56,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let listdata of alllist | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+                                <tr *ngFor="let listdata of filteredList  | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
                                     <td>{{(10*(p-1))+(i+1)}}</td>
                                     <td style="white-space: nowrap;text-transform:uppercase"><span >{{listdata.fname}} {{listdata.mname}}
                                             {{listdata.lname}}</span>&nbsp; &nbsp;
@@ -55,10 +64,11 @@
                                     </td>
                                     <td style="white-space: nowrap"><span >{{listdata.email}} / {{listdata.visible_password}}</span></td>
                                     <td style="white-space: nowrap"><span >{{listdata.phone}}</span></td>
+                                    <td style="white-space: nowrap"><span >{{listdata.created_at| date: 'dd/MM/yyyy'}}</span></td>
                                     <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.state}}</span></td>
                                     <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.district}}</span></td>
                                     <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.taluka}}</span></td>
-                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.city.name}}</span></td>
+                                    <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.city}}</span></td>
                                     <td style="white-space: nowrap"><span style="text-transform:uppercase">{{listdata.user_type}}</span></td>
                                     <td style="white-space: nowrap;">
                                         <!-- User Pramotion -->

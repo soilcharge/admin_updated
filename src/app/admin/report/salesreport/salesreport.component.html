@@ -11,6 +11,8 @@
                 </ul>
             </div>
         </div>
+        <button  style="margin-left:20px" class="btn btn-info text-white font-weight-normal text-xs" (click)="exportToExcel()">Export to Excel</button>
+        &nbsp;&nbsp;<button  class="btn btn-info text-white font-weight-normal text-xs" (click)="exportToPdf()">Export to PDF</button>
 
         <div class="row">
             <div class="col s12 m12 l12">
@@ -66,17 +68,19 @@
                         </table>
                         <hr>
                         <table style="font-size: small;" class="datatable responsive-table highlight"
-                            id="pagedatatable">
+                            id="exportTable">
                             <thead>
                                 <tr>
-                                    <th style="white-space: nowrap">Sr No.</th>
-                                    <th style="white-space: nowrap">Order No</th>
-                                    <th>From</th>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Action</th>
+                                    <th style="white-space: nowrap" (click)="sortTable('Sr no')">Sr No.<i class="material-icons" style="padding-bottom:10px;"  [ngClass]="getArrowClass('Sr no')">arrow_upward</i></th>
+                                    <!-- <th style="white-space: nowrap" (click)="sortTable('order_no')">Order No</th> -->
+                                    <th style="white-space: nowrap; " (click)="sortTable('order_no')"> Order No <i class="material-icons" style="padding-bottom:10px"  [ngClass]="getArrowClass('order_no')">arrow_upward</i>
+                                      </th>
+                                    <th (click)="sortTable('datefrom')">From  <i class="material-icons" style="padding-bottom:10px"  [ngClass]="getArrowClass('datefrom')">arrow_upward</i></th>
+                                    <th (click)="sortTable('dateto')" >Date <i class="material-icons" style="padding-bottom:10px"  [ngClass]="getArrowClass('dateto')">arrow_upward</i></th>
+                                    <th (click)="sortTable('created_disctributor_amount')">Amount  <i class="material-icons" style="padding-bottom:10px"  [ngClass]="getArrowClass('created_disctributor_amount')">arrow_upward</i></th>
+                                    <th >Action</th>    
                                 </tr>
-                            </thead>
+                            </thead> 
                             <tbody>
                                 <tr
                                     *ngFor="let order of orders | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
